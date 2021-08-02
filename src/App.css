@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -37,4 +42,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  width: 300px;
+  height: 400px;
+  background-color: #47597E;
+}
+
+.header {
+  width: 100%;
+  height: 45px;
+  background-color: #3498db;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
 }
