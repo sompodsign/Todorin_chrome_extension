@@ -12,6 +12,7 @@
     "react-bootstrap": "^2.0.0-beta.4",
     "react-browser-extension-scripts": "4.0.10",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
