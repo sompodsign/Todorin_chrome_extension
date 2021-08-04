@@ -3,7 +3,7 @@ import '../loader.css'
 
 function Loader() {
     return (
-        <div class="loader">Loading...</div>
+        <div class="loader">Loading....</div>
     )
 }
 
