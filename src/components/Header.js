@@ -2,10 +2,10 @@
 import React from 'react'
 import '../App.css'
 
-function Header(props) {
+function Header({ dateItem }) {
     return (
         <div className="header">
-            <h3>Todos 03</h3>
+            <h3>{`Todorin ${dateItem < 10 ? "0"+dateItem : dateItem}`}</h3>
         </div>
     )
 }

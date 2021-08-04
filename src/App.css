@@ -48,6 +48,7 @@
   width: 300px;
   height: 400px;
   background-color: #47597E;
+  overflow: auto;
 }
 
 .header {
@@ -62,7 +63,7 @@
 .inputContainer {
   display: flex;
   align-items: center;
-
+  background-color: #DBE6FD;
 }
 
 .inputStyle {
@@ -71,6 +72,8 @@
   border: none;
   font-size: 16px;
   margin-left: 10px;
+  background-color: #DBE6FD;
+  
 }
 
 .inputStyle:focus {
@@ -86,4 +89,35 @@
 }
 .sendIconStyle:hover {
   color: #47597E;
+}
+
+.card {
+  background-color: #293B5F;
+  margin: 6px 15px;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rightIconContainer {
+  align-self: flex-end;
+}
+
+.leftIconContainer {
+  align-self: flex-start;
+  margin-right: 9px;
+  background-color: #3498db;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cardIconLeft {
+  font-size: 24;
+  color: #293B5F;
+  vertical-align:middle;  
+  margin-top: 4px;
+  text-align: center;
 }

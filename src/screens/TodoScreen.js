@@ -5,8 +5,13 @@ import db from '../firebase.config'
 import Card from '../components/Card'
 import GoalInput from '../components/GoalInput';
 
+const date = new Date().getDate(); //To get the Current Date
+const month = new Date().getMonth() + 1; //To get the Current Month
+const year = new Date().getFullYear(); //To get the Current Year
+
 function TodoScreen() {
     const [todos, setTodos] = useState([])
+    const [title, setTitle] = useState("");
     const todosRef = db.collection('todos')
 
     useEffect(() => {
@@ -28,17 +33,31 @@ function TodoScreen() {
     }, []);
 
 
+    async function pressHandler(title) {
+        await todosRef.add({
+          title: title,
+          date: date,
+          month: month,
+          year: year
+        });
+      }
+    
+      async function deleteHandler(id) {
+         await db.collection("todos").doc(id).delete()
+      }
+
+
     return (
         <div>
-            <Header />
+            <Header dateItem={date}/>
             <div className='container'>
                 {todos.map(todo => {
                     return (
-                        <Card item={todo}/>
+                        <Card item={todo} deleteItem={deleteHandler} />
                     )
                 })}
             </div>
-            <GoalInput />
+            <GoalInput  addHandler={pressHandler} deleteItem={deleteHandler}/>
         </div>
     )
 }

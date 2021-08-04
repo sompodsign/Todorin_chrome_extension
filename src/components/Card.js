@@ -1,13 +1,30 @@
 import React from 'react';
 import '../App.css'
-
+import { FiCheck } from 'react-icons/fi';
+// import { BiCalendarCheck } from 'react-icons/bi';
 
 function Card(props) {
+
+    const styles = {
+        cardIconRight: {
+            fontSize: 20,
+            color: 'white',
+        },
+    }
+
     return (
-        <div className="cardContainer">
-        <h4>{props.item.title}</h4>
+        <div className="card">
+            <div style={{ display: 'flex', alignItems: 'center'}}>
+                <div className="leftIconContainer"><h4 className="cardIconLeft">{props.item.date < 10 ? "0" + props.item.date : props.item.date}</h4></div>
+                <h3 style={{ color: '#DBE6FD', fontSize: 13 }}>{props.item.title}</h3>
+            </div>
+            <div className="rightIconContainer"><FiCheck
+                style={styles.cardIconRight}
+                onClick={() => props.deleteItem(props.item.id)}
+            /></div>
         </div>
     )
 }
 
 export default Card
+{/* <BiCalendarCheck style={{fontSize: 15}} className="cardIconLeft" /> */ }
