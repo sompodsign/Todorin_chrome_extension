@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css'
 import { FiCheck } from 'react-icons/fi';
-// import { BiCalendarCheck } from 'react-icons/bi';
 
 function Card(props) {
 
@@ -27,4 +26,3 @@ function Card(props) {
 }
 
 export default Card
-{/* <BiCalendarCheck style={{fontSize: 15}} className="cardIconLeft" /> */ }
