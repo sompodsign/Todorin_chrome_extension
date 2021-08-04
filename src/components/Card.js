@@ -7,7 +7,7 @@ function Card(props) {
 
     const styles = {
         cardIconRight: {
-            fontSize: 20,
+            fontSize: 18,
             color: 'white',
         },
     }
@@ -18,10 +18,10 @@ function Card(props) {
                 <div className="leftIconContainer"><h4 className="cardIconLeft">{props.item.date < 10 ? "0" + props.item.date : props.item.date}</h4></div>
                 <h3 style={{ color: '#DBE6FD', fontSize: 13 }}>{props.item.title}</h3>
             </div>
-            <div className="rightIconContainer"><FiCheck
+            <a href="#"><div className="rightIconContainer"><FiCheck
                 style={styles.cardIconRight}
                 onClick={() => props.deleteItem(props.item.id)}
-            /></div>
+            /></div></a>
         </div>
     )
 }
