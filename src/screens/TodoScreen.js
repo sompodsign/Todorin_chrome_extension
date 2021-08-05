@@ -11,26 +11,37 @@ const month = new Date().getMonth() + 1; //To get the Current Month
 const year = new Date().getFullYear(); //To get the Current Year
 
 
+
 function TodoScreen() {
+    
+    const time = new Date().getTime(); // to sort list by time.
+
     const [todos, setTodos] = useState([])
     const [title, setTitle] = useState("");
+    const [isLoading, setLoading] = useState(true)
     const todosRef = db.collection('todos')
+
 
     useEffect(() => {
         return todosRef.onSnapshot(querySnapshot => {
             const list = [];
             querySnapshot.forEach(doc => {
-                const { title, date, month, year } = doc.data();
+                const { title, time, date, month, year } = doc.data();
                 list.push({
                     id: doc.id,
                     title,
+                    time,
                     date,
                     month,
                     year
                 });
             });
 
-            setTodos(list);
+            const sortedList = list.sort((a,b) => { // sort array by time.
+                return a.time - b.time
+            })
+            setTodos(sortedList)
+            setLoading(false)
         });
     }, []);
 
@@ -38,6 +49,7 @@ function TodoScreen() {
     async function pressHandler(title) {
         await todosRef.add({
             title: title,
+            time: time,
             date: date,
             month: month,
             year: year
@@ -47,18 +59,18 @@ function TodoScreen() {
     async function deleteHandler(id) {
         await db.collection("todos").doc(id).delete()
     }
-    console.log(todos)
 
     return (
         <div>
             <Header dateItem={date} />
             <div className='container'>
-                {todos.length > 0 ? todos.map(todo => {
+                {
+                    isLoading ? <Loader /> :
+                    todos.map(todo => {
                     return (
-                        <Card item={todo} deleteItem={deleteHandler} />
+                        <Card key={todo.id} item={todo} deleteItem={deleteHandler} />
                     )
-                }) :
-                    <Loader />
+                })
                 }
             </div>
             <GoalInput addHandler={pressHandler} deleteItem={deleteHandler} />
