@@ -5,6 +5,7 @@ import db from '../firebase.config'
 import Card from '../components/Card'
 import GoalInput from '../components/GoalInput';
 import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const date = new Date().getDate(); //To get the Current Date
 const month = new Date().getMonth() + 1; //To get the Current Month
@@ -66,6 +67,9 @@ function TodoScreen() {
             <div className='container'>
                 {
                     isLoading ? <Loader /> :
+                    todos.length === 0 && !isLoading && <Message /> 
+                    ? <Message /> 
+                    :
                     todos.map(todo => {
                     return (
                         <Card key={todo.id} item={todo} deleteItem={deleteHandler} />
