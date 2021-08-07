@@ -20,7 +20,9 @@ function TodoScreen() {
     const [todos, setTodos] = useState([])
     const [title, setTitle] = useState("");
     const [isLoading, setLoading] = useState(true)
-    const todosRef = db.collection('todos')
+
+
+    const todosRef = db.collection('todos');
 
 
     useEffect(() => {
@@ -34,7 +36,7 @@ function TodoScreen() {
                     time,
                     date,
                     month,
-                    year
+                    year,
                 });
             });
 
@@ -53,7 +55,7 @@ function TodoScreen() {
             time: time,
             date: date,
             month: month,
-            year: year
+            year: year,
         });
     }
 

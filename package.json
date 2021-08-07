@@ -11,6 +11,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.4",
     "react-browser-extension-scripts": "4.0.10",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "reactstrap": "^8.9.0",
